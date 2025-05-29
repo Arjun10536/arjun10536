@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Travel Score Game</title>
+<style>
+
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  input[type=number] { width: 60px; margin-right: 10px; }
+  button { padding: 5px 10px; }
+  #result { margin-top: 20px; font-weight: bold; }
+</style>
+</head>
+<body>
+<center>
+<h1>Travel from NYC based on Your Game Scores</h1>
+
+<label>Game 1 score: <input type="number" id="score1"  /></label><br />
+<label>Game 2 score: <input type="number" id="score2"  /></label><br />
+<label>Game 3 score: <input type="number" id="score3"  /></label><br />
+<label>Game 4 score: <input type="number" id="score4"  /></label><br /><br />
+
+<button onclick="calculateTravel()">Calculate Travel</button>
+
+<div id="result"></div>
+</center>
+
+<script>
+  function calculateTravel() {
+    // Get scores from inputs
+    const score1 = Number(document.getElementById('score1').value);
+    const score2 = Number(document.getElementById('score2').value);
+    const score3 = Number(document.getElementById('score3').value);
+    const score4 = Number(document.getElementById('score4').value);
+
+    
+    const totalMiles = score1 + score2 + score3 + score4;
+
+ 
+    const destinations = [
+      { miles: 0, country: "You haven't left NYC yet!" },
+      { miles: 500, country: "Washington, D.C., USA" },
+      { miles: 1000, country: "Miami, USA" },
+      { miles: 2000, country: "Mexico City, Mexico" },
+      { miles: 3000, country: "Reykjavík, Iceland" },
+      { miles: 4000, country: "London, UK" },
+      { miles: 5000, country: "Paris, France" },
+      { miles: 6000, country: "Rome, Italy" },
+      { miles: 7000, country: "Cairo, Egypt" },
+      { miles: 8000, country: "Nairobi, Kenya" },
+      { miles: 9000, country: "Tokyo, Japan" },
+      { miles: 10000, country: "Sydney, Australia" },
+    ];
+
+  
+    let destination = destinations[0].country;
+    for (const place of destinations) {
+      if (totalMiles >= place.miles) {
+        destination = place.country;
+      } else {
+        break;
+      }
+    }
+
+    // Show result
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `You traveled <strong>${totalMiles} miles</strong>!<br>You made it to: <strong>${destination}</strong> 🌍`;
+  }
+</script>
+
+</body>
+</html>

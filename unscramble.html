@@ -3,271 +3,133 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Scramble Game</title>
+	<style type="text/css">
+		h3{
+			margin-top:300px;
+
+		}
+		}
+		#score{
+			font-size:20px;
+		}
+		#clock {
+			font-size: 30px;
+			margin-top: 10px;
+		}
+		#random {
+			font-size: 50px;
+			margin-top: 100px;
+		}
+		#guessInput {
+			height: 30px;
+			width: 300px;
+			font-size: 16px;
+			margin-top: 20px;
+		}
+		button {
+			height: 35px;
+			font-size: 16px;
+			margin-left: 10px;
+		}
+	</style>
 </head>
 <body>
 <center>
-	<p id="score"></p>
-<div id="clock"></div>
-<div id="random"></div>
-<input type="text" id="guessInput" placeholder="Type your answer here">
-<button onclick="checkAnswer()">Submit</button>
-<p id="feedback"></p>
-<style type="text/css">
-	#clock{
-		font-size:30px;
-		margin-top:10px;
-	}
-	#random{
-		font-size:50px;
-		margin-top:250px;
-	}
-#guestInput{
-	height:30px;
-	width:300px;
-	font-size:12px;
-}
-</style>
-</center>
-<script type="text/javascript">
-function checkAnswer(){
-	let userGuess=document.getElementById("guessInput").value.trim().toLowerCase()
-	let correctAnswer=countryname.toLowerCase().replace(/\s+/g, '')
-	if (userGuess===correctAnswer){
-		clearInterval(fullTimer)
-		document.getElementById("feedback").innerText="Correct ✅"
-		let score=time*100
-		document.getElementById("score").innerText = "Your score: " + score;
-	}
-	else{
-		document.getElementById("feedback").innerText="Try Again ❌"
-	}
-	}
-
-
-let time = 30;
-function timer(){
-	time=time-1
-	clock.innerText=time
-	if (time<=0){clearInterval(fullTimer)
-	document.getElementById("feedback").innerText="⏰ Time's up! The correct answer is: "+countryname;
-	}
-}
-
-let fullTimer = setInterval(timer,1000)
-
-let countries = [
-	"afghanistan",
-	"albania",
-	"algeria",
-	"andorra",
-	"angola",
-	"anguilla",
-	"antigua and Barbuda",
-	"argentina",
-	"armenia",
-	"australia",
-	"austria",
-	"azerbaijan",
-	"bahamas",
-	"bahrain",
-	"bangladesh",
-	"barbados",
-	"belarus",
-	"belgium",
-	"belize",
-	"benin",
-	"bhutan",
-	"bolivia",
-	"bosnia and herzegovina",
-	"botswana",
-	"brazil",
-	"brunei",
-	"bulgaria",
-	"burkina Faso",
-	"burundi",
-	"cape verde",
-	"cambodia",
-	"cameroon",
-	"canada",
-	"central african republic",
-	"chad",
-	"chile",
-	"china",
-	"colombia",
-	"comoros",
-	"congo",
-	"costa rica",
-	"croatia",
-	"cuba",
-	"cyprus",
-	"czechia",
-	"ivory coast",
-	"denmark",
-	"djibouti",
-	"dominica",
-	"dominican republic",
-	"ecuador",
-	"egypt",
-	"el salvador",
-	"equatorial guinea",
-	"eritrea",
-	"estonia",
-	"eswatini",
-	"ethiopia",
-	"fiji",
-	"finland",
-	"france",
-	"french guiana",
-	"gabon",
-	"gambia",
-	"georgia",
-	"germany",
-	"ghana",
-	"greece",
-	"grenada",
-	"guatemala",
-	"guinea",
-	"guinea-bissau",
-	"guyana",
-	"haiti",
-	"honduras",
-	"hungary",
-	"iceland",
-	"india",
-	"indonesia",
-	"iran",
-	"iraq",
-	"ireland",
-	"israel",
-	"italy",
-	"jamaica",
-	"japan",
-	"jordan",
-	"kazakhstan",
-	"kenya",
-	"kiribati",
-	"north korea",
-	"south korea ",
-	"kuwait",
-	"kyrgyzstan",
-	"laos",
-	"latvia",
-	"lebanon",
-	"lesotho",
-	"liberia",
-	"libya",
-	"liechtenstein",
-	"lithuania",
-	"luxembourg",
-	"madagascar",
-	"malawi",
-	"malaysia",
-	"maldives",
-	"mali",
-	"malta",
-	"marshall islands",
-	"mauritania",
-	"mauritius",
-	"mexico",
-	"micronesia",
-	"moldova",
-	"monaco",
-	"mongolia",
-	"montenegro",
-	"morocco",
-	"mozambique",
-	"myanmar",
-	"namibia",
-	"nauru",
-	"nepal",
-	"netherlands",
-	"new zealand",
-	"nicaragua",
-	"niger",
-	"nigeria",
-	"norway",
-	"oman",
-	"pakistan",
-	"palau",
-	"palestine",
-	"panama",
-	"papua new guinea",
-	"paraguay",
-	"peru",
-	"philippines",
-	"poland",
-	"portugal",
-	"qatar",
-	"north macedonia",
-	"romania",
-	"russia",
-	"rwanda",
-	"saint kitts and nevis",
-	"saint lucia",
-	"saint vincent and the grenadines",
-	"samoa",
-	"san marino",
-	"sao tome and principe",
-	"saudi arabia",
-	"senegal",
-	"serbia",
-	"seychelles",
-	"sierra leone",
-	"singapore",
-	"slovakia",
-	"slovenia",
-	"solomon islands",
-	"somalia",
-	"south africa",
-	"south sudan",
-	"spain",
-	"sri lanka",
-	"sudan",
-	"suriname",
-	"sweden",
-	"switzerland",
-	"syria",
-	"taiwan",
-	"tajikistan",
-	"tanzania",
-	"thailand",
-	"togo",
-	"tonga",
-	"trinidad and tobago",
-	"tunisia",
-	"turkey",
-	"turkmenistan",
-	"tuvalu",
-	"uganda",
-	"ukraine",
-	"united arab emirates ",
-	"united kingdom",
-	"united states of america",
-	"uruguay",
-	"uzbekistan",
-	"vanuatu",
-	"venezuela",
-	"vietnam",
-	"yemen",
-	"zambia",
-	"zimbabwe",
 	
-];
-function scramble(word) {
-	let scram = word.replace(/\s+/g, '').split('');
-	for (let i = scram.length - 1; i > 0; i--) {
-		let j = Math.floor(Math.random() * (i + 1));
-		[scram[i], scram[j]] = [scram[j], scram[i]];
+	<div id="clock">30</div>
+	<p id="score">Score: 0</p>
+	<div id="random"></div>
+	<input type="text" id="guessInput" placeholder="Type your answer here">
+	<button id="submitBtn" onclick="checkAnswer()">Submit</button>
+	<p id="feedback"></p>
+</center>
+
+<script type="text/javascript">
+	let time = 30;
+	let score = 0;
+	let countryname = "";
+	let fullTimer;
+
+	let countries = [
+		"afghanistan","albania","algeria","andorra","angola","anguilla","antigua and barbuda",
+		"argentina","armenia","australia","austria","azerbaijan","bahamas","bahrain","bangladesh",
+		"barbados","belarus","belgium","belize","benin","bhutan","bolivia","bosnia and herzegovina",
+		"botswana","brazil","brunei","bulgaria","burkina faso","burundi","cape verde","cambodia",
+		"cameroon","canada","central african republic","chad","chile","china","colombia","comoros",
+		"congo","costa rica","croatia","cuba","cyprus","czechia","ivory coast","denmark","djibouti",
+		"dominica","dominican republic","ecuador","egypt","el salvador","equatorial guinea","eritrea",
+		"estonia","eswatini","ethiopia","fiji","finland","france","french guiana","gabon","gambia",
+		"georgia","germany","ghana","greece","grenada","guatemala","guinea","guinea-bissau","guyana",
+		"haiti","honduras","hungary","iceland","india","indonesia","iran","iraq","ireland","israel",
+		"italy","jamaica","japan","jordan","kazakhstan","kenya","kiribati","north korea","south korea",
+		"kuwait","kyrgyzstan","laos","latvia","lebanon","lesotho","liberia","libya","liechtenstein",
+		"lithuania","luxembourg","madagascar","malawi","malaysia","maldives","mali","malta",
+		"marshall islands","mauritania","mauritius","mexico","micronesia","moldova","monaco",
+		"mongolia","montenegro","morocco","mozambique","myanmar","namibia","nauru","nepal",
+		"netherlands","new zealand","nicaragua","niger","nigeria","norway","oman","pakistan","palau",
+		"palestine","panama","papua new guinea","paraguay","peru","philippines","poland","portugal",
+		"qatar","north macedonia","romania","russia","rwanda","saint kitts and nevis","saint lucia",
+		"saint vincent and the grenadines","samoa","san marino","sao tome and principe","saudi arabia",
+		"senegal","serbia","seychelles","sierra leone","singapore","slovakia","slovenia",
+		"solomon islands","somalia","south africa","south sudan","spain","sri lanka","sudan",
+		"suriname","sweden","switzerland","syria","taiwan","tajikistan","tanzania","thailand",
+		"togo","tonga","trinidad and tobago","tunisia","turkey","turkmenistan","tuvalu","uganda",
+		"ukraine","united arab emirates","united kingdom","united states of america","uruguay",
+		"uzbekistan","vanuatu","venezuela","vietnam","yemen","zambia","zimbabwe"
+	];
+
+	function scramble(word) {
+		let scram = word.replace(/\s+/g, '').split('');
+		for (let i = scram.length - 1; i > 0; i--) {
+			let j = Math.floor(Math.random() * (i + 1));
+			[scram[i], scram[j]] = [scram[j], scram[i]];
+		}
+		return scram.join('');
 	}
-	return scram.join('');
-}
-let randomcountry=Math.floor(Math.random()*countries.length)
-let countryname=countries[randomcountry]
-let scrambled=scramble(countryname);
-random.innerText=scrambled;
+
+	function getNewWord() {
+		let randomIndex = Math.floor(Math.random() * countries.length);
+		countryname = countries[randomIndex];
+		let scrambled = scramble(countryname);
+		document.getElementById("random").innerText = scrambled;
+		document.getElementById("guessInput").value = '';
+		document.getElementById("feedback").innerText = '';
+	}
+
+	function checkAnswer() {
+		let userGuess = document.getElementById("guessInput").value.trim().toLowerCase().replace(/\s+/g, '');
+		let correctAnswer = countryname.toLowerCase().replace(/\s+/g, '');
+
+		if (userGuess === correctAnswer && time > 0) {
+			score += 250;
+			document.getElementById("score").innerText = "Score: " + score;
+			document.getElementById("feedback").innerText = "✅ Correct!";
+			getNewWord();
+		} else {
+			document.getElementById("feedback").innerText = "❌ Try Again!";
+		}
+	}
+
+	function timer() {
+		time--;
+		document.getElementById("clock").innerText = time;
+		if (time <= 0) {
+			clearInterval(fullTimer);
+			document.getElementById("feedback").innerText = "⏰ Time's up! Final score: " + score;
+			document.getElementById("guessInput").disabled = true;
+			document.getElementById("submitBtn").disabled = true;
+		}
+	}
+
+	getNewWord();
+	fullTimer = setInterval(timer, 1000);
 </script>
+<center>
+	<h3>Instructions for Game 2</h3>
+<h4>Unlike the first game, the next game is not time-based. There will be a trivia question, and if you get it right, you will receive 1000 points. Check spelling!</h4>
 
-
+<button onclick="document.location='trivia.html'">Game 2</button>
+</center>
 </body>
 </html>

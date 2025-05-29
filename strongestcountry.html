@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Flag Guessing Game</title>
+<style type="text/css">
+#clock{
+font-size:30px;
+}
+</style>
+</head>
+<body>
+  <center>
+    <h1>Guess the Country</h1>
+    <p id="clock">30</p>
+    <div id="flag" style="font-size:100px;"></div>
+    <input type="text" id="guessInput" placeholder="Type country name">
+    <button onclick="checkGuess()">Submit</button>
+    <p id="feedback"></p>
+    <p id="scoreDisplay">Score: 0</p>
+
+
+  </center>
+
+  <script>
+    const flags = [
+      "🇺🇸", "🇬🇧", "🇨🇦", "🇫🇷", "🇩🇪", "🇮🇹", "🇪🇸", "🇯🇵", "🇨🇳", "🇰🇷",
+      "🇧🇷", "🇲🇽", "🇮🇳", "🇷🇺", "🇦🇺", "🇦🇷", "🇸🇪", "🇳🇴", "🇫🇮", "🇳🇱",
+      "🇨🇭", "🇧🇪", "🇳🇿", "🇸🇦", "🇪🇬", "🇿🇦", "🇮🇱", "🇬🇷", "🇹🇷", "🇦🇪"
+    ];
+
+    const countries = [
+      "United States", "United Kingdom", "Canada", "France", "Germany", "Italy", "Spain", "Japan", "China", "South Korea",
+      "Brazil", "Mexico", "India", "Russia", "Australia", "Argentina", "Sweden", "Norway", "Finland", "Netherlands",
+      "Switzerland", "Belgium", "New Zealand", "Saudi Arabia", "Egypt", "South Africa", "Israel", "Greece", "Turkey", "United Arab Emirates"
+    ];
+
+    let score = 0;
+    let currentIndex = -1;
+
+    function getRandomFlag() {
+      currentIndex = Math.floor(Math.random() * flags.length);
+      document.getElementById("flag").innerText = flags[currentIndex];
+      document.getElementById("guessInput").value = "";
+      document.getElementById("feedback").innerText = "";
+    }
+
+    function checkGuess() {
+      const guess = document.getElementById("guessInput").value.trim().toLowerCase();
+      const correct = countries[currentIndex].toLowerCase();
+
+      if (guess === correct) {
+        score=score+250;
+        document.getElementById("feedback").innerText = "Correct!";
+        document.getElementById("scoreDisplay").innerText = "Score: " + score;
+        getRandomFlag(); // Next round
+      } else {
+        document.getElementById("feedback").innerText = "Incorrect. Try again!";
+      }
+    }
+let time = 30;
+function timer(){
+	time=time-1
+	clock.innerText=time
+	if (time<=0){clearInterval(fullTimer)
+	document.getElementById("feedback").innerText="⏰ Time's up!"
+}
+}
+let fullTimer = setInterval(timer,1000)
+
+    // Initialize game
+    getRandomFlag();
+  </script>
+</body>
+</html>

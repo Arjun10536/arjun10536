@@ -4,25 +4,20 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<style type="text/css">
-		h3{
-			margin-top:500px;
-		}
-	</style>
-	
 </head>
 <body>
-<center>
 
-<h2 id="question"></h2>
-  <input type="text" id="answerInput" placeholder="Your answer here">
-  <button onclick="checkTriviaAnswer()">Submit</button>
-  <p id="result"></p>
-  <p id="scoreDisplay"></p>
+	<script type="text/javascript">
+		let arjun = {
+			height: 6.1,
+			eyeColor:"brown",
+			sport: "soccer",
+			greeting:function(){
+				alert("hello!")
+			}
+		}
 
-
-<script type="text/javascript">
-	let questions = [
+		let questions = [
 	{question: "What is the capital of Peru?", answer: "Lima"},
 	{question:"Which country is Petra located in?", answer: "Jordan"},
 	{question: "Which country has the most lakes?", answer: "Canada"},
@@ -39,28 +34,15 @@
 	{question:"Which country is home to the world's tallest building", answer: "United Arab Emirates"},
 	{question:"What is the happiest country in the world?", answer:"Finland"}
 ]
-	 let score = 0;
-    let selected = questions[Math.floor(Math.random() * questions.length)];
 
-    document.getElementById("question").innerText = selected.question;
 
-    function checkTriviaAnswer() {
-      let userInput = document.getElementById("answerInput").value.trim().toLowerCase();
-      if (userInput === selected.answer.toLowerCase()) {
-        score += 1500;
-        document.getElementById("result").innerText = "Correct!";
-      } else {
-        document.getElementById("result").innerText = "Wrong! The correct answer was: " + selected.answer;
-      }
-      document.getElementById("scoreDisplay").innerText = "Score: " + score;
-    }
+		console.log(questions[0].answer)
 
-</script>
+		// console.log(arjun.height)
+		// arjun.greeting()
 
-<h3>Instructions for Game 3:</h3>
-<h4> A flag will appear and you have to type in your guess. Try to get as many as possible in the alotted 30 seconds! The timer will starts as soon as you press the button below!</h4>
+		// document.addEventListener()
+	</script>
 
-<button onclick="document.location='flags.html'">Game 3</button>
-</center>
 </body>
 </html>
